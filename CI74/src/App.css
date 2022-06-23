@@ -8,3 +8,34 @@
     min-height: 100vh;
 }
 
+
+.container{
+    display: flex;
+}
+.container .content-left{
+    flex: 1;
+    
+}
+.container .content-right{
+    flex: 1;
+
+}
+
+button{
+    border: none;
+    display: block;
+    margin: 0 auto;
+    margin-top: 30px;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-family: 'PT Serif';
+font-style: normal;
+font-weight: 700;
+font-size: 25px;
+line-height: 33px;
+letter-spacing: 2.5px;
+
+color: #171717;
+}
