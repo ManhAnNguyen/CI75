@@ -1,26 +1,15 @@
-import React, { useState } from "react";
-import "./App.css";
+import React from "react";
+import Ex1 from "./Home/Ex1";
+import Ex2 from "./Home/Ex2";
 
-const lights = ["red", "yellow", "green"];
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
-  const [checked, setChecked] = useState(0);
-
-  const handleNext = () => {
-    setChecked(checked == 2 ? 0 : checked + 1);
-  };
-
-  console.log(checked);
   return (
     <div>
-      {lights.map((element, index) => (
-        <span
-          key={index}
-          className={`light ${index === checked && element}`}
-        ></span>
-      ))}
-
-      <button onClick={handleNext}>Next</button>
+      <Ex2 />
+      <ToastContainer position="top-left" theme="dark" />
     </div>
   );
 };
