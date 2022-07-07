@@ -1,22 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const App = () => {
-  const [products, setProducts] = useState(null);
+  const [inputValue, setInputValue] = useState("");
+  const [productDetail, setProductDetail] = useState(null);
 
-  const fetchData = async () => {
-    const response = await fetch(`https://fakestoreapi.com/products`);
-    const data = await response.json();
-
-    setProducts(data);
+  const handleSearch = async () => {
+    const res = await fetch(`https://fakestoreapi.com/products/${inputValue}`);
+    const data = await res.json();
+    setProductDetail(data);
   };
 
-  console.log(products);
+  useEffect(() => {
+    if (inputValue) {
+      handleSearch();
+    }
+  }, [inputValue]);
 
+  console.log(productDetail);
   return (
     <div>
-      <button onClick={fetchData}>Call Api</button>
-      {products &&
-        products.map((product, index) => <h1 key={index}>{product.title}</h1>)}
+      <input
+        type="text"
+        placeholder="Search..."
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+      />
     </div>
   );
 };
